@@ -1,0 +1,209 @@
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 65%;
+}
+
+/* 使用body可以使得屬性得以被其子元素繼承 */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 40rem;
+  line-height: 1.7;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.header {
+  /* vh => 使其高度為畫面的95%高 */
+  height: 95vh;
+  /* 在圖片上覆蓋漸層 */
+  background-image: linear-gradient(to right, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  /* cover => 使背景覆蓋在整個畫面內 */
+  background-size: cover;
+  /* 使背景在視窗變動時維持某部分不變 */
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header__logo {
+  height: 3.5rem;
+}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.header .heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 3.5rem;
+  -webkit-animation: fade-left 0.4s ease-out forwards;
+          animation: fade-left 0.4s ease-out forwards;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 17.4px;
+  -webkit-animation: fade-right 0.4s ease-out forwards;
+          animation: fade-right 0.4s ease-out forwards;
+  /* animation-name: fade-right;
+  animation-duration: 0.8S;
+  animation-timing-function: ease-out;
+  animation-direction: forwards; */
+}
+
+@-webkit-keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@-webkit-keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@-webkit-keyframes fade-bottom {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(600%);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-bottom {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(600%);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+.btn:link, .btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 4rem;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.5s;
+  position: relative;
+  font-size: 1.5rem;
+  -webkit-animation: fade-bottom 0.5s ease-out forwards;
+          animation: fade-bottom 0.5s ease-out forwards;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 3px 20px 5px rgba(85, 85, 85, 0.583);
+}
+.btn:hover::after {
+  transform: scale(1.5);
+  opacity: 0;
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 1px 20px 1px rgba(85, 85, 85, 0.583);
+}
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+.btn--white::after {
+  background-color: #fff;
+  color: #777;
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}/*# sourceMappingURL=main.css.map */
